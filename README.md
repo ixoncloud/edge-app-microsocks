@@ -8,13 +8,21 @@ Key Features:
 2. Authentication Options: Support for username/password to restrict access when needed.
 3. Efficient Design: Lightweight and optimized for secure routing on SecureEdge Pro hardware
 
-## Prerequisites
+## Steps to Deploy
+
+### Prerequisites
 
 Ensure your environment is properly set up by following this guide: [Running custom Docker applications on the SecureEdge Pro](https://support.ixon.cloud/hc/en-us/articles/14231117531420-Running-custom-Docker-applications-on-the-SecureEdge-Pro).
 
-## Steps to Deploy
+### 1. Download and adjust to your SecureEdge Pro
 
-### 1. Build and Push the Container
+Download the code of this project and change the IP address in the following files to the LAN IP address of your SecureEge Pro:
+
+- buildkitd-secure-edge-pro.toml
+- build_and_push_containers.sh
+- build_and_push_containers.cmd
+
+### 2. Build and Push the Container
 
 Ensure you have the correct builder in use:
 
@@ -44,7 +52,7 @@ For Windows:
 build_and_push_containers.cmd
 ```
 
-### 2. Set Up MicroSocks on SecureEdge Pro
+### 3. Set Up MicroSocks on SecureEdge Pro
 
 - Access the local web interface of the SecureEdge Pro.
 - Create a `microsocks` container using the `microsocks` image with the following port mappings:
@@ -63,14 +71,14 @@ build_and_push_containers.cmd
 Refer to the screenshot for configuration details:  
 ![Create Container](secure_edge_pro_settings/create_container.png)
 
-### 3. Start the Containers
+### 4. Start the Containers
 
 - Wait for the containers to be created.
 - Start the containers.
 
-### 4. You now have a running MicroSocks container on your SecureEdge Pro!
+### 5. You now have a running MicroSocks container on your SecureEdge Pro!
 
-### 5. Configure Your Client
+### 6. Configure Your Client
 
 - Configure your client to use the SOCKS5 proxy with the IP address of the SecureEdge Pro and port 1080.
 - Use the provided username and password.
